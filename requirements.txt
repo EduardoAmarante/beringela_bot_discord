@@ -1,0 +1,6 @@
+discord.py
+requests
+python-dateutil
+beautifulsoup4
+aiohttp
+pyyaml
