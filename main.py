@@ -6,24 +6,23 @@ import asyncio
 import requests
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from module.raspador_kabum import *
-from module.data import *
 import os
 
-# from dotenv import load_dotenv
-# load_dotenv()
-# CLIENT_ID_TWITCH = os.getenv("CLIENT_ID_TWITCH")
-# DISCORD_GUILD = os.getenv("DISCORD_GUILD")
-# TOKEN_DISCORD = os.getenv("TOKEN_DISCORD")
-# TWITCH_SECRET = os.getenv("TWITCH_SECRET")
+from dotenv import load_dotenv
+load_dotenv()
+CLIENT_ID_TWITCH = os.getenv("CLIENT_ID_TWITCH")
+DISCORD_GUILD = os.getenv("DISCORD_GUILD")
+TOKEN_DISCORD = os.getenv("TOKEN_DISCORD")
+TWITCH_SECRET = os.getenv("TWITCH_SECRET")
 
-CLIENT_ID_TWITCH = os.environ.get("CLIENT_ID_TWITCH")
-DISCORD_GUILD = os.environ.get("DISCORD_GUILD")
-TOKEN_DISCORD = os.environ.get("TOKEN_DISCORD")
-TWITCH_SECRET = os.environ.get("TWITCH_SECRET")
+# CLIENT_ID_TWITCH = os.environ.get("CLIENT_ID_TWITCH")
+# DISCORD_GUILD = os.environ.get("DISCORD_GUILD")
+# TOKEN_DISCORD = os.environ.get("TOKEN_DISCORD")
+# TWITCH_SECRET = os.environ.get("TWITCH_SECRET")
 
-bot = commands.Bot('!')
-
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='!',intents=intents)
 @bot.event
 async def on_ready():
     print('on ready')
