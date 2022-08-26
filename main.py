@@ -8,17 +8,18 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import os
 
-# from dotenv import load_dotenv
-# load_dotenv()
-# CLIENT_ID_TWITCH = os.getenv("CLIENT_ID_TWITCH")
-# DISCORD_GUILD = os.getenv("DISCORD_GUILD")
-# TOKEN_DISCORD = os.getenv("TOKEN_DISCORD")
-# TWITCH_SECRET = os.getenv("TWITCH_SECRET")
-
-CLIENT_ID_TWITCH = os.environ.get("CLIENT_ID_TWITCH")
-DISCORD_GUILD = os.environ.get("DISCORD_GUILD")
-TOKEN_DISCORD = os.environ.get("TOKEN_DISCORD")
-TWITCH_SECRET = os.environ.get("TWITCH_SECRET")
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+    CLIENT_ID_TWITCH = os.getenv("CLIENT_ID_TWITCH")
+    DISCORD_GUILD = os.getenv("DISCORD_GUILD")
+    TOKEN_DISCORD = os.getenv("TOKEN_DISCORD")
+    TWITCH_SECRET = os.getenv("TWITCH_SECRET")
+except:
+    CLIENT_ID_TWITCH = os.environ.get("CLIENT_ID_TWITCH")
+    DISCORD_GUILD = os.environ.get("DISCORD_GUILD")
+    TOKEN_DISCORD = os.environ.get("TOKEN_DISCORD")
+    TWITCH_SECRET = os.environ.get("TWITCH_SECRET")
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -43,5 +44,14 @@ async def clear(ctx, amount=0):
     else:
         await ctx.send("You need to be an admin to use this command")
 
+@bot.command()
+async def pontuar(ctx):
+    name = ctx.author.name
+    print("{} marcou 10 pontos!".format(name))
+
+@bot.event
+async def on_message(message: discord.Message):
+    if "gosto" in message.content:
+        await message.channel.send(f'EU GOSTUUMMM!')
 
 bot.run(TOKEN_DISCORD)
