@@ -8,18 +8,18 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import os
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-    CLIENT_ID_TWITCH = os.getenv("CLIENT_ID_TWITCH")
-    DISCORD_GUILD = os.getenv("DISCORD_GUILD")
-    TOKEN_DISCORD = os.getenv("TOKEN_DISCORD")
-    TWITCH_SECRET = os.getenv("TWITCH_SECRET")
-except:
-    CLIENT_ID_TWITCH = os.environ.get("CLIENT_ID_TWITCH")
-    DISCORD_GUILD = os.environ.get("DISCORD_GUILD")
-    TOKEN_DISCORD = os.environ.get("TOKEN_DISCORD")
-    TWITCH_SECRET = os.environ.get("TWITCH_SECRET")
+
+# from dotenv import load_dotenv
+# load_dotenv()
+# CLIENT_ID_TWITCH = os.getenv("CLIENT_ID_TWITCH")
+# DISCORD_GUILD = os.getenv("DISCORD_GUILD")
+# TOKEN_DISCORD = os.getenv("TOKEN_DISCORD")
+# TWITCH_SECRET = os.getenv("TWITCH_SECRET")
+
+CLIENT_ID_TWITCH = os.environ.get("CLIENT_ID_TWITCH")
+DISCORD_GUILD = os.environ.get("DISCORD_GUILD")
+TOKEN_DISCORD = os.environ.get("TOKEN_DISCORD")
+TWITCH_SECRET = os.environ.get("TWITCH_SECRET")
 
 intents = discord.Intents.default()
 intents.message_content = True
