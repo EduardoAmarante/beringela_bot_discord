@@ -25,4 +25,3 @@ def price_product(urlProduct):
 
     return product
 
-print(price_product('https://www.kabum.com.br/produto/155408/ssd-kingston-nv1-500gb-m-2-2280-nvme-leitura-2100mb-s-e-gravacao-1700mb-s-snvs-500g'))
