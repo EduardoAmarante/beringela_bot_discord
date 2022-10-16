@@ -25,4 +25,21 @@ async def clear(ctx, amount=0):
     else:
         await ctx.send("You need to be an admin to use this command")
 
+@bot.command()
+async def linkedin(ctx,content):
+    
+    print(ctx.author.name)
+    embed = discord.Embed(
+        title=ctx.author.name,
+        url=content,
+        description="[Acesse]({}) {}'s linkedin".format(content,ctx.author.name),
+        color=discord.Color.blue(),
+        
+        )
+    embed.set_thumbnail(url=ctx.author.display_avatar) 
+    await ctx.channel.purge(limit=1)
+
+    await ctx.send(embed=embed)
+
+
 bot.run('token')
