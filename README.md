@@ -1,2 +1,2 @@
 # beringela_bot_discord
-Bot para Discord usando Python e [discord.py](https://discordpy.readthedocs.io/en/stable/intro.html)
+Beringela is a bot for discord that was written in python and using [discord.py](https://discordpy.readthedocs.io/en/stable/intro.html)
